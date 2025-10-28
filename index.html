@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電鋸人 | CHAINSAW MAN - 公安對魔特異4課</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="img/pochita.png" alt="Pochita Icon" class="pochita-icon">
+            CHAINSAW MAN
+        </div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="characters.html">CHARACTERS</a>
+            <a href="story.html">STORY</a>
+            <a href="gallery.html">GALLERY</a> 
+            <button class="pull-cord-btn" onclick="triggerChainsaw()">啟動電鋸</button>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1 class="main-title">
+                <span class="jp-text">電鋸人</span>
+                <span class="en-text">CHAINSAW MAN</span>
+            </h1>
+            <p class="subtitle">你的惡魔契約，準備好了嗎？</p>
+            <a href="characters.html" class="cta-button">深入契約</a>
+        </div>
+        
+        <div class="chainsaw-man-visual">
+            <img src="img/chainsaw-man.png" alt="Chainsaw Man Denji" class="denji-image">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 公安對魔特異4課 | CHAINSAW MAN FAN SITE</p>
+        <div class="social-links">
+            <a href="#"><span class="icon">FB</span></a>
+            <a href="#"><span class="icon">TW</span></a>
+        </div>
+        <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑ TOP</button>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
