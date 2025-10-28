@@ -44,3 +44,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 備註：平滑滾動邏輯已移除，因為頁面切換將由瀏覽器處理。
 });
+
+// 啟動電鋸的動畫效果，並導航到指定影片
+function triggerChainsaw() {
+    const btn = document.querySelector('.pull-cord-btn');
+    
+    // 指定要開啟的 YouTube 連結
+    const videoUrl = 'https://youtu.be/xvFZjo5PgG0'; 
+
+    // 1. 觸發視覺效果 (動畫)
+    btn.classList.add('pulled');
+    
+    // 2. 動畫持續 200ms 後移除 class
+    setTimeout(() => {
+        btn.classList.remove('pulled');
+    }, 200);
+
+    // 3. 導航：在新分頁中開啟 YouTube 影片
+    window.open(videoUrl, '_blank');
+
+    console.log('電鋸啟動並前往 YouTube！');
+}
+
+// ... (document.addEventListener('DOMContentLoaded', ...) 以下的程式碼保持不變)

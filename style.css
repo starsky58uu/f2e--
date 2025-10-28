@@ -478,3 +478,37 @@ body {
 .gallery-item:hover .caption {
     transform: translateY(0); /* 懸停時滑入 */
 }
+/* 啟動電鋸按鈕 (互動按鈕) */
+.pull-cord-btn {
+    margin-left: 25px;
+    padding: 8px 15px;
+    background-color: var(--color-primary-red);
+    color: var(--color-text-light);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    /* 確保過渡時間足夠長，讓發光效果柔和 */
+    transition: all 0.3s ease-in-out; 
+    box-shadow: 0 0 5px rgba(204, 0, 0, 0.4); /* 預設的微弱紅光 */
+}
+
+/* ⭐ 關鍵修改 1: 滑鼠移入時的持續發光效果 */
+.pull-cord-btn:hover {
+    box-shadow: 0 0 20px 8px rgba(255, 50, 50, 0.8); /* 強烈發光 */
+    background-color: #ff3333; /* 顏色變亮 */
+    transform: scale(1.05); /* 輕微放大 */
+}
+
+/* 點擊時的瞬間回饋 (系統級) */
+.pull-cord-btn:active {
+    /* 點擊時只負責下壓，不改變發光，保持 hover 狀態的發光 */
+    transform: translateY(2px);
+}
+
+/* ⭐ 關鍵修改 2: 點擊時的短暫「啟動」效果 */
+.pull-cord-btn.pulled {
+    /* 點擊後，即使滑鼠離開也會持續 0.2s 的高能狀態 */
+    box-shadow: 0 0 30px 15px rgba(255, 100, 100, 1); /* 比 hover 更強烈的閃光 */
+    background-color: #ff5555;
+    transform: scale(1.08);
+}
