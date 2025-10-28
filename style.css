@@ -122,8 +122,8 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    max-height: 85vh;
-    width: auto;
+    max-height: 720px;
+    width: 1500px;
     z-index: 5;
 }
 
@@ -151,8 +151,8 @@ body {
 }
 
 .subtitle {
-    font-size: 1.5em;
-    font-weight: 700;
+    font-size: 1.4em;
+    font-weight: 200px;
     margin-bottom: 30px;
 }
 
@@ -477,4 +477,9 @@ body {
 
 .gallery-item:hover .caption {
     transform: translateY(0); /* 懸停時滑入 */
+}
+
+.main-title img{
+    width: 368.82px;
+    height: 207.36px;
 }
