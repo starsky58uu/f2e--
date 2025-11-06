@@ -1,14 +1,11 @@
-/* 顏色變數 */
 :root {
-    --color-primary-red: #cc0000; /* 鮮豔的血紅色 */
-    --color-dark-bg: #1a1a1a; /* 黑暗背景 */
-    --color-text-light: #f0f0f0; /* 淺色文字 */
-    --color-accent-black: #0d0d0d; /* 更深的黑色 */
-    --color-border-gray: #444444; /* 邊框灰色 */
+    --color-primary-red: #cc0000; 
+    --color-dark-bg: #1a1a1a; 
+    --color-text-light: #f0f0f0; 
+    --color-accent-black: #0d0d0d;
+    --color-border-gray: #444444; 
 }
-
-/* 全域和基礎樣式 */
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,13 +16,12 @@ body {
     background-color: var(--color-accent-black);
     color: var(--color-text-light);
     line-height: 1.6;
-    background-image: url('img/hero-bg.jpg'); /* 黑暗城市背景圖 */
     background-attachment: fixed;
     background-size: cover;
-    background-blend-mode: multiply; /* 讓背景偏暗 */
+    background-blend-mode: multiply; 
 }
 
-/* --- 導覽列樣式 --- */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -69,27 +65,24 @@ body {
     color: var(--color-primary-red);
 }
 
-/* ⭐ 優化 1: 導覽列下劃線動畫 (使用 transform: scaleX) ⭐ */
 .navbar a::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0; /* 鎖定左側 */
-    width: 100%; /* 寬度固定 100% */
+    left: 0; 
+    width: 100%; 
     height: 3px;
     background: var(--color-primary-red);
     
-    transform: scaleX(0); /* 初始寬度為 0 */
-    transform-origin: left center; /* 從左邊開始伸展 */
-    /* 使用更專業的緩動函數 */
+    transform: scaleX(0); 
+    transform-origin: left center;
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
 }
 
 .navbar a:hover::after {
-    transform: scaleX(1); /* 伸展至完整寬度 */
+    transform: scaleX(1); 
 }
 
-/* 啟動電鋸按鈕 (互動按鈕) */
 .pull-cord-btn {
     margin-left: 25px;
     padding: 8px 15px;
@@ -98,31 +91,26 @@ body {
     border: none;
     cursor: pointer;
     font-weight: 700;
-    /* 過渡時間設定為 0.2s，與 JS 的 timeout 相匹配 */
     transition: all 0.2s ease-out; 
-    box-shadow: 0 0 5px rgba(204, 0, 0, 0.4); /* 預設的微弱紅光 */
+    box-shadow: 0 0 5px rgba(204, 0, 0, 0.4); 
 }
 
-/* ⭐ 懸停發光效果 ⭐ */
 .pull-cord-btn:hover {
-    box-shadow: 0 0 20px 8px rgba(255, 50, 50, 0.8); /* 強烈發光 */
-    background-color: #ff3333; /* 顏色變亮 */
-    transform: scale(1.05); /* 輕微放大 */
+    box-shadow: 0 0 20px 8px rgba(255, 50, 50, 0.8); 
+    background-color: #ff3333; 
+    transform: scale(1.05); 
 }
 
-/* 點擊時的瞬間回饋 (系統級) */
 .pull-cord-btn:active {
     transform: translateY(2px);
 }
 
-/* ⭐ 點擊時的短暫「啟動」效果 ⭐ */
 .pull-cord-btn.pulled {
-    box-shadow: 0 0 30px 15px rgba(255, 100, 100, 1); /* 比 hover 更強烈的閃光 */
+    box-shadow: 0 0 30px 15px rgba(255, 100, 100, 1); 
     background-color: #ff5555;
     transform: scale(1.08);
 }
 
-/* --- 英雄區塊樣式 --- */
 .hero-section {
     height: 100vh;
     display: flex;
@@ -193,7 +181,6 @@ body {
     transform: scale(1.05);
 }
 
-/* --- 內容區塊基礎樣式 --- */
 .content-section {
     padding: 100px 5%;
     min-height: 80vh;
@@ -210,7 +197,6 @@ body {
     padding-bottom: 10px;
 }
 
-/* --- 漫畫風格斜向格子圖案樣式 (新增) --- */
 .comic-strip-bg {
     background-image: 
         linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%), 
@@ -220,16 +206,13 @@ body {
     background-color: var(--color-accent-black);
     opacity: 0.9; 
     background-repeat: repeat;
-    border: none !important; /* 不讓邊框影響網格背景 */
+    border: none !important; 
 }
 
-/* --- 角色卡片樣式 (推擠滑動效果) --- */
 .character-grid {
     display: grid;
-    /* 核心: 鎖定為 4 欄 */
     grid-template-columns: repeat(4, 1fr); 
     gap: 40px;
-    /* ⭐ 調整內邊距，讓漫畫背景顯露 ⭐ */
     padding: 20px 5%; 
     border:none
 }
@@ -238,24 +221,21 @@ body {
     background-color: var(--color-dark-bg);
     border: 4px solid var(--color-border-gray);
     position: relative; 
-    overflow: hidden; /* 確保內容不會溢出卡片外部 */
+    overflow: hidden; 
     cursor: pointer;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    display: flex; /* 讓圖片和介紹層並排 */
-    aspect-ratio: 1 / 1.5; /* 固定長寬比 */
-    /* ⭐ 優化 2: 使用更柔和的回彈過渡和 GPU 提示 ⭐ */
+    display: flex;
+    aspect-ratio: 1 / 1.5; 
     transition: all 0.4s cubic-bezier(0.3, 0.7, 0.4, 1.2); 
     will-change: width, transform;
     /*justify-content: center;
     text-align: center;
     align-items: center;*/
-    --extended-width: 0px; /* CSS 變量：定義延伸寬度 */
-    width: calc(100% + var(--extended-width)); /* 卡片總寬度 = 內容寬度 + 延伸寬度 */
+    --extended-width: 0px;
+    width: calc(100% + var(--extended-width));
 }
-
-/* 核心樣式：滑鼠進入時，增大卡片寬度 (推擠後面的卡片) */
 .character-card.is-extended {
-    --extended-width: 60px; /* 推擠的寬度可稍微縮小，以適應 250px 基礎寬度 */
+    --extended-width: 60px;
     box-shadow: 0 0 20px rgba(204, 0, 0, 0.7);
     z-index: 50; 
     /*width: calc(250px + var(--extended-width));*/
@@ -269,7 +249,6 @@ body {
     justify-content: center;
 }
 
-/* 卡片下方原本的簡介 */
 .card-brief {
     padding: 15px;
     text-align: center;
@@ -286,9 +265,8 @@ body {
     margin-bottom: 5px;
 }
 
-/* 延伸出來的詳細介紹層 */
 .char-info-overlay {
-    width: 40%; /* 佔用卡片內剩餘的 40% 空間 */
+    width: 40%; 
     height: 87%;
     padding: 20px;
     background-color: var(--color-primary-red);
@@ -296,7 +274,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 0%;
-    /* 預設將介紹內容藏在圖片/簡介下方 (往右移動 100% 自己的寬度) */
     transform: translateX(100%); 
     transition: transform 0.4s cubic-bezier(0.3, 0.7, 0.4, 1.2); 
     will-change: transform;
@@ -313,14 +290,11 @@ body {
     margin-bottom: 5px;
 }
 
-/* 滑鼠移入時，介紹層滑入到它自己的 40% 空間 */
 .character-card.is-extended .char-info-overlay {
     width: 60%;
     transform: translateX(0);
 }
 
-
-/* --- 故事區塊樣式 --- */
 .story-content {
     max-width: 800px;
     margin: 0 auto;
@@ -355,7 +329,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* --- 底部樣式 --- */
 .footer {
     background-color: var(--color-accent-black);
     text-align: center;
@@ -400,29 +373,23 @@ body {
     font-weight: 700;
 }
 
-/* --- 獨立分頁樣式 --- */
-/* 確保內容從 Nav 下方開始 */
 .page-section {
     padding-top: 150px; 
     min-height: 100vh;
 }
 
-/* 獨立分頁的首頁圖片應該隱藏 */
 .characters-page .denji-image, 
 .story-page .denji-image {
     display: none;
 }
 
-/* --- 圖庫區塊樣式 (Gallery Section) --- */
 .gallery-grid {
-    /* 使用 CSS Grid 實現類似瀑布流的佈局 */
     display: grid;
-    /* 核心：定義多個列，允許圖片跨行 */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 15px;
-    grid-auto-rows: minmax(100px, auto); /* 讓行高彈性伸展 */
+    grid-auto-rows: minmax(100px, auto); 
     margin: 0 auto;
-    max-width: 1400px; /* 限制圖庫最大寬度 */
+    max-width: 1400px; 
 }
 
 .gallery-item {
@@ -432,103 +399,93 @@ body {
     border: 2px solid var(--color-border-gray);
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
-    
-    /* 讓項目跨行/列 (瀑布流效果) */
     grid-row: span 2; 
 }
 
-/* 針對特定大小的圖片調整跨度 */
 .gallery-item.large {
-    grid-row: span 3; /* 佔用 3 行 */
+    grid-row: span 3; 
 }
 .gallery-item.wide {
-    grid-column: span 2; /* 佔用 2 列 */
-    grid-row: span 1; /* 只佔用 1 行 */
+    grid-column: span 2; 
+    grid-row: span 1; 
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 確保圖片填滿，可能裁剪 */
+    object-fit: cover; 
     display: block;
     transition: opacity 0.3s, transform 0.3s;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05); /* 懸停放大效果 */
+    transform: scale(1.05);
     opacity: 0.8;
 }
 
-/* 圖片說明文字 */
 .caption {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 10px;
-    background-color: rgba(204, 0, 0, 0.7); /* 紅色半透明背景 */
+    background-color: rgba(204, 0, 0, 0.7); 
     color: var(--color-text-light);
     font-weight: 700;
     text-align: center;
-    transform: translateY(100%); /* 預設隱藏在底部 */
+    transform: translateY(100%); 
     transition: transform 0.3s ease-out;
 }
 
 .gallery-item:hover .caption {
-    transform: translateY(0); /* 懸停時滑入 */
+    transform: translateY(0); 
 }
 
 .main-title img{
     width: 368.82px;
     height: 207.36px;
 }
-/* --- 響應式設計 (Media Queries) --- */
+
 @media (max-width: 1200px) {
-    /* 螢幕變窄時，改為兩欄 */
     .character-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
     .character-card {
-        --extended-width: 100px; /* 縮小延伸寬度 */
+        --extended-width: 100px; 
     }
 }
 
 @media (max-width: 600px) {
-    /* 手機螢幕上改為一欄 */
     .character-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    /* 手機上：取消推擠，改為底部上滑覆蓋的簡潔模式 */
     .character-card {
         --extended-width: 0px; 
     }
     
     .character-card img {
-        width: 100%; /* 圖片佔滿寬度 */
+        width: 100%;
     }
 
     .card-brief {
         width: 100%;
     }
     
-    /* 介紹層改為絕對定位，底部隱藏 */
     .char-info-overlay {
         position: absolute;
         width: 100%; 
         height: 50%;
-        transform: translateY(100%); /* 底部隱藏 */
+        transform: translateY(100%); 
         right: auto;
         bottom: 0;
         top: auto;
         padding: 15px;
-        /* 手機模式的滑動也要更順暢 */
         transition: transform 0.4s cubic-bezier(0.3, 0.7, 0.4, 1.2); 
     }
 
-    /* 手機上移入時，往上滑動 */
     .character-card.is-extended .char-info-overlay {
         transform: translateY(0);
         box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.7);
